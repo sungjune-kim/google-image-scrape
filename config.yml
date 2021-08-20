@@ -1,0 +1,7 @@
+driver:
+    PATH : '/home/cvlab/chromedriver'
+    #PATH : '/Users/sungjunekim/Downloads/chromedriver'
+    URL : "https://www.google.co.kr/imghp?hl=ko"
+
+save:
+    directory : '/home/cvlab/sungjune/google-image-scrape'
