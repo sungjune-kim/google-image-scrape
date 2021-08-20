@@ -2,10 +2,16 @@
 # coding: utf-8
 
 from scraper import ImageScraper
+from Save import Save
 
 if __name__ == '__main__':
     searchword = input("Search Word : ")
-    num_image = int(input("How many images do you want to scrape? : "))
+    
     
     scraper = ImageScraper(searchword)
-    scraper.activate(num_image)
+    images = scraper.activate()
+    
+    saver = Save(images,searchword)
+    saver.makedir()
+    saver.download_image()
+    
