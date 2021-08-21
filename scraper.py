@@ -26,7 +26,10 @@ class ImageScraper:
         try:
             driver.execute_script("window.scrollTo(0,8000)")
             images = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "img[class='rg_i Q4LuWd']")))
-            images = [image.get_attribute('src') for image in images]    
+            images = [image.get_attribute('src') for image in images] 
+
+            
+            
             print(f"scraped {len(images)} images")
             
         finally:
