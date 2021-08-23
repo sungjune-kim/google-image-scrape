@@ -26,9 +26,10 @@ class ImageScraper:
         
         try:
             main = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CLASS_NAME,"islrc")))
-            items = main.find_elements_by_class_name("wXeWr islib nfEiy")
+            items = main.find_elements_by_class_name("bRMDJf islir")
+            imgs = [item.get_attribute('src') for item in items]
             
         finally:
             driver.quit()
         
-        return self.image_list
+        return imgs
