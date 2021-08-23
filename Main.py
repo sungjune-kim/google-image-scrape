@@ -10,7 +10,7 @@ if __name__ == '__main__':
     
     scraper = ImageScraper(searchword)
     images = scraper.activate()
-    
-    saver = Save(images,searchword)
-    saver.makedir()
-    saver.download_image()
+    print(images)
+#    saver = Save(images,searchword)
+#    saver.makedir()
+#    saver.download_image()

@@ -14,6 +14,7 @@ class ImageScraper:
         self.PATH = config_driver['PATH']
         self.URL = config_driver['URL']
         self. searchword = searchword
+        self.image_list = []
     
     def activate(self):
         driver = webdriver.Chrome(self.PATH)
@@ -24,15 +25,13 @@ class ImageScraper:
         search.send_keys(Keys.RETURN)
         
         try:
-            driver.execute_script("window.scrollTo(0,8000)")
-            images = WebDriverWait(driver,10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "img[class='rg_i Q4LuWd']")))
-            images = [image.get_attribute('src') for image in images] 
-
+            #driver.execute_script("window.scrollTo(0,8000)")
+            wait = WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "img[class='rg_i Q4LuWd']")))
             
-            
-            print(f"scraped {len(images)} images")
-            
+            elem = driver.find_elements_by_class_name("isv-r PNCib MSM1fd BUooTd")
+            print(elem)
+                
         finally:
             driver.quit()
         
-        return images
+        return self.image_list
