@@ -25,12 +25,9 @@ class ImageScraper:
         search.send_keys(Keys.RETURN)
         
         try:
-            #driver.execute_script("window.scrollTo(0,8000)")
-            wait = WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "img[class='rg_i Q4LuWd']")))
+            main = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CLASS_NAME,"islrc")))
+            items = main.find_elements_by_class_name("wXeWr islib nfEiy")
             
-            elem = driver.find_elements_by_class_name("isv-r PNCib MSM1fd BUooTd")
-            print(elem)
-                
         finally:
             driver.quit()
         
