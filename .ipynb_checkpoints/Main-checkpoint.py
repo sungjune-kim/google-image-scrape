@@ -14,4 +14,3 @@ if __name__ == '__main__':
     saver = Save(images,searchword)
     saver.makedir()
     saver.download_image()
-    
