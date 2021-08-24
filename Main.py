@@ -7,10 +7,9 @@ from Save import Save
 if __name__ == '__main__':
     searchword = input("Search Word : ")
     
+    save_instance = Save(searchword)
+    path, foldername = save_instance.makedir()
     
-    scraper = ImageScraper(searchword)
-    images = scraper.activate()
+    scraper = ImageScraper(path, foldername, searchword)
+    scraper.activate()
 
-    saver = Save(images,searchword)
-    saver.makedir()
-    saver.download_image()
